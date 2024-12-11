@@ -8,7 +8,7 @@
     <!-- Project information -->
     <name>dependency-package</name>
     <description>A simple example project for dependency</description>
-    <url>https://github.com/simsonmoses/dependency-package</url>
+    <url>https://github.com/GIT-Package-Master/Github-maven-Package-Examples</url>
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
