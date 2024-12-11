@@ -32,35 +32,6 @@ jobs:
             mkdir -p ~/.m2
             echo '<settings><servers><server><id>github</id><username>${{ github.actor }}</username><password>${{ secrets.GITHUB_TOKEN }}</password></server></servers></settings>' > ~/.m2/settings.xml
 
-
-      - name: Create new tag
-        run: |
-            git fetch --all --tags -f
-            latest_tag=$(git tag | awk '/^v[0-9]+\.[0-9]+\.[0-9]+-pre-release$/ {print $0}' | sort -rV | head -n 1)
-          
-            if [[ $latest_tag == v* ]]; then
-              version=$(echo "$latest_tag" | sed -e 's/^v//')
-              version=$(echo "$version" | sed -e 's/-pre-release$//')
-              major=$(echo "$version" | cut -d. -f1)
-              minor=$(echo "$version" | cut -d. -f2)
-              patch=$(echo "$version" | cut -d. -f3)
-              if [[ $minor -eq 50 || $patch -eq 100 ]]; then
-                major=$((major+1))
-                minor=0
-                patch=0
-              elif [[ $patch -eq 50 ]]; then
-                minor=$((minor+1))
-                patch=0
-              else
-                patch=$((patch+1))
-              fi
-              new_tag="v$major.$minor.$patch-pre-release"
-            else
-              new_tag="v0.0.1-pre-release"
-            fi
-            echo "New tag: $new_tag"
-            echo "VERSION=$new_tag" >> $GITHUB_ENV
-
       - name: Build with Maven
         run: mvn -B package --file pom.xml
 
