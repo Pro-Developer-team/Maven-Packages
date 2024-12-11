@@ -13,7 +13,7 @@
         <module>module1</module>
         <module>module2</module>
         <module>module3</module>
-        <!-- Add more modul es as needed -->
+        <!-- Add more modules as needed -->
     </modules>
 
     <properties>
@@ -21,4 +21,21 @@
         <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <url>https://maven.pkg.github.com/GIT-Package-Master/Github-maven-Package-Examples</url>
+        </repository>
+    </distributionManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <version>2.8.2</version> <!-- Use the latest version -->
+            </plugin>
+        </plugins>
+    </build>
 </project>
