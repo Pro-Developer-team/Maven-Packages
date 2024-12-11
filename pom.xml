@@ -3,10 +3,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.custom</groupId>
-    <artifactId>dependency-package</artifactId>
+    <artifactId>maven package one</artifactId>
     <version>0.1.2</version>
     <!-- Project information -->
-    <name>dependency-package</name>
+    <name>maven package 1</name>
     <description>A simple example project for dependency</description>
     <url>https://github.com/GIT-Package-Master/Github-maven-Package-Examples</url>
     <properties>
