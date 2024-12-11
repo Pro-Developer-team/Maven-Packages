@@ -13,7 +13,7 @@
         <module>module1</module>
         <module>module2</module>
         <module>module3</module>
-        <!-- Add more modules as needed -->
+        <!-- Add more modul es as needed -->
     </modules>
 
     <properties>
