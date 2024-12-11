@@ -32,14 +32,9 @@ jobs:
             mkdir -p ~/.m2
             echo '<settings><servers><server><id>github</id><username>${{ github.actor }}</username><password>${{ secrets.GITHUB_TOKEN }}</password></server></servers></settings>' > ~/.m2/settings.xml
 
-      - name: Build with Maven
+      - name: Build with Maven/Publish
         run: mvn -B package --file pom.xml
-
-      - name: Publish to GitHub Packages Apache Maven
-        run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
+        
       - name: Create release
         id: create_release
         uses: actions/create-release@v1
